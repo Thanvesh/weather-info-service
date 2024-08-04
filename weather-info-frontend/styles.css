@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  height: 100vh;
+  width: 100vw;
+  background: #1f1a25;
+  overflow: hidden;
+}
+
+html {
+    font-size: 16px; /* This is 1rem */
+  }
+  
+  /* Adjust the base font size for different screen sizes */
+  @media (max-width: 600px) {
+    html {
+      font-size: 14px;
+    }
+  }
+  
+  @media (min-width: 601px) and (max-width: 1024px) {
+    html {
+      font-size: 15px;
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  /* Use rem units for typography */
+  h1 {
+    font-size: 2rem; /* This means 2 times the root font size */
+    margin-bottom: 1.875rem; /* This means 1.875 times the root font size */
+    text-align: center;
+    color: #ffffff;
+    position: relative; /* Required for pseudo-elements */
+    overflow: hidden; /* Ensures pseudo-elements don't overflow */
+    transition: color 0.25s, transform 0.3s;
+    padding: 10px;
+  }
+  
+  /* Add a draw-border effect to h1 */
+  h1::before,
+  h1::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    pointer-events: none;
+    transition: width 0.25s, height 0.25s, border-color 0s;
+  }
+  
+  h1::before {
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    bottom: 0;
+    right: 0;
+  }
+  
+  h1::after {
+    border-top-width: 4px;
+    border-right-width: 4px;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+  }
+  
+  /* Hover effects for h1 */
+  h1:hover {
+    color: #ffffff; /* Change text color on hover */
+    transform: scale(1.02); /* Slightly scale up */
+  }
+  
+  h1:hover::before,
+  h1:hover::after {
+    border-color: #ffe593; /* Change border color on hover */
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Optional: adjust outline for focus */
+  h1:focus {
+    outline: 2px dotted #55d7dc;
+  }
+  
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  transition: transform 0.3s ease-in-out;
+  
+}
+
+form{
+    margin-top: 50px;
+}
+
+.container:hover {
+  transform: scale(1.02);
+}
+
+
+
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+input[type="search"] {
+  padding: 0.5em;
+  border: 2px solid #58afd1;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="search"]:focus {
+  border-color: #ffe593;
+  box-shadow: 0 0 10px rgba(255, 229, 147, 0.5);
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 0.9rem 'Roboto Slab', sans-serif;
+  padding: 0.5em 0.8em;
+  position: relative;
+  color: #58afd1;
+  transition: color 0.25s 0.083s;
+}
+
+.draw-border {
+  box-shadow: inset 0 0 0 4px #58afd1;
+}
+
+.draw-border::before,
+.draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.btn:focus {
+  outline: 2px dotted #55d7dc;
+}
+
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+
+.draw-border:hover {
+  color: #ffe593;
+}
+
+.draw-border:hover::before,
+.draw-border:hover::after {
+  border-color: #ffe593;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+
+.draw-border:hover::before {
+  transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+  transition-delay: 0s, 0.25s, 0s;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease-out;
+  padding-top: 0px;
+  transition: box-shadow 0.3s, transform 0.3s ,border 0.4s ;
+}
+
+.weather-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+  border:5px solid #ffa41d
+
+}
+
+.weather-card.sunny {
+  background-color: #ffa41d;
+  color: #ffffff;
+}
+
+.weather-card.cloudy {
+  background-color: #8ed1eb;
+  color: #4f4a4a;
+}
+
+.weather-card.rainy {
+  background-color: #00447a;
+  color: #ffffff;
+}
+
+.weather-card.snowy {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.weather-card.thunderstorm {
+  background-color: #756c99;
+  color: #ffffff;
+}
+
+.weather-card.wind {
+  background-color: #09b285;
+  color: #ffffff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cardtop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cart-top-time-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+}
+
+.TimeIcon {
+  width: 30px;
+  height: 30px;
+  transition: opacity 1s ease-in-out;
+}
+
+.TimeIcon.sun {
+  opacity: 1;
+}
+
+.TimeIcon.moon {
+  opacity: 0;
+}
+
+.weather-icon {
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  
+  .weather-icon:hover {
+    transform: scale(1.1);
+    border: 2px solid #ffa41d;
+  }

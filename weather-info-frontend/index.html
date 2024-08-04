@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Information Service</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<div class="container">
+  <h1>Weather Information Service</h1>
+  <form id="weather-form">
+    <label for="city">Enter city to get weather:</label>
+    <input type="search" id="city" name="city" required placeholder="Enter city...">
+    <button class="btn draw-border" type="submit"><span>Search</span></button>
+  </form>
+  <div id="weather-result" class="weather-card"></div>
+</div>
+<script src="scripts.js"></script>
+</body>
+</html>
