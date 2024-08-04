@@ -6,7 +6,7 @@ document.getElementById('weather-form').addEventListener('submit', async (event)
   resultDiv.innerHTML = 'Loading...';
 
   try {
-    const response = await fetch(`http://localhost:5000/weather?city=${city}`);
+    const response = await fetch(`https://weather-info-service.onrender.com/weather?city=${city}`);
     const data = await response.json();
     console.log(data);
 
